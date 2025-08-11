@@ -1,25 +1,36 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState, useEffect } from 'react';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+function App(){
+
+    const [fact,setFact]=useState("");
+    const [loading, setLoading]=useState(true);
+
+    const fetchFact=async()=>{
+        setLoading(true); //set loading to true
+        try{
+            const response=await fetch("https://uselessfacts.jsph.pl/api/v2/facts/random");
+            const data=await response.json(); //convert the JSON response into an object
+            console.log(data);
+            setFact(data.text); //set the fact to the text property of the object
+        }
+        catch(error){
+            console.log("error",error); //display error details
+        }
+        setLoading(false);
+    }
+    useEffect(() => {
+        fetchFact();
+    }, []);
+
+    return (
+        <div className="app-container">
+            <h1>Random Facts</h1>
+            <p className="fact-text">{loading?"Loading fact...":fact}</p>
+            <button classsName="fact-button" onClick={fetchFact}>
+                New Fact
+            </button>
+        </div>
+    );
 }
 
 export default App;
