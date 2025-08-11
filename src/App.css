@@ -36,3 +36,21 @@
     transform: rotate(360deg);
   }
 }
+
+/* user code from this point on */
+.app-container{
+    font: Arial, sans-serif;
+    text-align: center;
+    padding: 20px;
+}
+
+.fact-text{
+    font-size: 1.2rem;
+}
+
+.fact-button{
+    margin-top: 1rem;
+    padding: 0.5rem 1rem;
+    font-size: 1rem;
+    cursor: pointer;
+}
