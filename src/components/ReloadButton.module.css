@@ -1,0 +1,97 @@
+/* Tweak these to fix “mushed” text or icon size quickly */
+.button {
+  --size: 100px;         /* outer button diameter */
+  --inner: 40px;         /* inner white circle diameter */
+  --ring-inset: -3px;     /* distance of letters from the edge; lower = closer to edge */
+  --icon-scale: 0.55;    /* icon size relative to inner circle */
+
+  cursor: pointer;
+  border: none;
+  background: #7808d0;
+  color: #fff;
+  width: var(--size);
+  height: var(--size);
+  border-radius: 50%;
+  overflow: hidden;
+  position: relative;
+  display: grid;
+  place-content: center;
+  transition: background 300ms, transform 200ms;
+  font-weight: 600;
+}
+
+.button__text {
+  position: absolute;
+  inset: 0;
+  animation: text-rotation 8s linear infinite;
+  pointer-events: none;
+}
+
+/* Each character is rotated by --angle-step * --index */
+.button__text > span {
+  position: absolute;
+  inset: var(--ring-inset);
+  transform: rotate(calc(var(--angle-step) * var(--index)));
+  transform-origin: center;
+  line-height: 1;
+  font-size: 12px;       /* adjust if letters feel too big */
+  letter-spacing: 0.5px; /* small spacing helps readability */
+}
+
+.button__circle {
+  position: relative;
+  width: var(--inner);
+  height: var(--inner);
+  overflow: hidden;
+  background: #fff;
+  color: #7808d0;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.button__icon {
+  width: calc(var(--inner) * var(--icon-scale));
+  height: calc(var(--inner) * var(--icon-scale));
+  transition: color 0.3s ease-in-out, transform 0.3s ease-in-out;
+}
+
+.button__icon--copy {
+  position: absolute;
+  transform: translate(-150%, 150%);
+}
+
+.button:hover {
+  background: #000;
+  transform: scale(1.05);
+}
+
+.button:hover .button__icon {
+  color: #000;
+}
+
+/* Spin the icon instead of sliding away */
+.button:hover .button__icon {
+  animation: spin 0.6s ease-in-out 1;
+}
+
+/* You don’t need the copy arrow anymore */
+.button__icon--copy {
+  display: none;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes text-rotation {
+  to {
+    rotate: 360deg;
+  }
+}
