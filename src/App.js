@@ -1,6 +1,7 @@
 import './App.css';
 import React, { useState, useEffect } from 'react';
 import ReloadButton from './components/ReloadButton';
+import FactCard from './components/FactCard';
 
 function App(){
 
@@ -26,8 +27,8 @@ function App(){
 
     return (
         <div className="app-container">
-            <h1>Random Facts</h1>
-            <p className="fact-text">{loading?"Loading fact...":fact}</p>
+            <h1 className="page-title">Random Facts</h1>
+             <FactCard fact={loading ? "Loading fact..." : fact} />
             <center><ReloadButton onClick={fetchFact} /></center>
         </div>
     );
