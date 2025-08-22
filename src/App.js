@@ -2,6 +2,7 @@ import './App.css';
 import React, { useState, useEffect } from 'react';
 import ReloadButton from './components/ReloadButton';
 import FactCard from './components/FactCard';
+import Title from './components/Title';
 
 function App(){
 
@@ -26,11 +27,13 @@ function App(){
     }, []);
 
     return (
+    <div>
+        <div><Title>Random Facts</Title></div>
         <div className="app-container">
-            <h1 className="page-title">Random Facts</h1>
              <FactCard fact={fact} loading={loading} />
             <center><ReloadButton onClick={fetchFact} /></center>
         </div>
+    </div>
     );
 }
 

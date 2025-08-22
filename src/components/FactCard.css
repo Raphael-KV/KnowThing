@@ -1,4 +1,4 @@
-/*works janky on mobile :<*/
+
 .container {
   position: relative;
   width: 90%;
@@ -35,17 +35,17 @@
 }
 
 .title {
-  max-width: 1000px;
+
   opacity: 0;
   transition-duration: 300ms;
   transition-timing-function: ease-in-out-out;
   transition-delay: 100ms;
   position: absolute;
-  font-size: 20px;
+  font-size: 40px;
   font-weight: bold;
   text-align: center;
   color: black;
-  padding: 20px;
+  padding: 50px;
   box-sizing: border-box;}
 
 .tracker:hover ~ #card .title {
@@ -56,10 +56,10 @@
   bottom: 8px;
   left: 12px;
   z-index: 20;
-  font-size: 20px;
+  font-size: 40px;
   font-weight: bold;
   transition: 300ms ease-in-out-out;
-  max-width: 1000px;
+  padding: 50px;
   color: rgb(255, 255, 255);
 }
 
