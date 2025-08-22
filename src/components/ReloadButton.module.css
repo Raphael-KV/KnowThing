@@ -56,6 +56,7 @@
   width: calc(var(--inner) * var(--icon-scale));
   height: calc(var(--inner) * var(--icon-scale));
   transition: color 0.3s ease-in-out, transform 0.3s ease-in-out;
+  color: #000
 }
 
 .button__icon--copy {
@@ -64,12 +65,12 @@
 }
 
 .button:hover {
-  background: #ffcc00;
+  background: #000;
   transform: scale(1.05);
 }
 
 .button:hover .button__icon {
-  color: #000;
+  color: #ffcc00;
 }
 
 /* Spin the icon instead of sliding away */

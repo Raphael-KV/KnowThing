@@ -1,16 +1,15 @@
-/* From Uiverse.io by Tokkstrr */
 /*works janky on mobile :<*/
 .container {
   position: relative;
   width: 90%;
-  height: 254px;
+  height: 50vh;
   margin: 0 auto;
   transition: 200ms;
 }
 
 .container:active {
-  width: 500px;
-  height: 245px;
+  width: 70%;
+  height: 48vh;
 }
 
 #card {
@@ -23,6 +22,9 @@
   border-radius: 20px;
   transition: 700ms;
   background: #191919;
+  padding: 20px;
+  box-sizing: border-box;
+
 }
 
 .subtitle {
@@ -43,7 +45,8 @@
   font-weight: bold;
   text-align: center;
   color: black;
-}
+  padding: 20px;
+  box-sizing: border-box;}
 
 .tracker:hover ~ #card .title {
   opacity: 1;
@@ -83,7 +86,7 @@
 .container:hover #card::before {
   transition: 200ms;
   content: "";
-  opacity: 80%;
+  opacity: 100%;
 }
 
 .canvas {
@@ -107,8 +110,8 @@
   content: "";
   background: #ffcc00;
   opacity: 0%;
-  width: 105%;
-  height: 105%;
+  width: 100%;
+  height: 100%;
   border-radius: 20px;
   position: absolute;
   z-index: -;
