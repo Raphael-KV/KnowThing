@@ -28,7 +28,7 @@ function App(){
     return (
         <div className="app-container">
             <h1 className="page-title">Random Facts</h1>
-             <FactCard fact={loading ? "Loading fact..." : fact} />
+             <FactCard fact={fact} loading={loading} />
             <center><ReloadButton onClick={fetchFact} /></center>
         </div>
     );

@@ -1,7 +1,8 @@
 import React from "react";
 import "./FactCard.css";
+import Loader from "./Loader.js";
 
-const FactCard = ({ fact }) => {
+const FactCard = ({ fact, loading }) => {
   return (
 <div class="container noselect">
   <div class="canvas">
@@ -31,10 +32,7 @@ const FactCard = ({ fact }) => {
     <div class="tracker tr-24"></div>
     <div class="tracker tr-25"></div>
     <div id="card">
-      <p id="prompt">{fact || "Loading..."}</p>
-      <div class="title">
-        {fact || "Loading..."}
-      </div>
+      {loading ? <Loader /> : <><p id="prompt">{fact}</p><div className="title">{fact}</div></>}
     </div>
   </div>
 </div>
